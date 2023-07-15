@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  app:
+    container_name: simple_network
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:123456er@db/basetest
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456er
+      - POSTGRES_DB=basetest
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
