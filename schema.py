@@ -33,3 +33,6 @@ class CreatePost(BaseModel):
 class UpdatePost(BaseModel):
     title: Optional[str] = None
     content: Optional[str] = None
+
+    class Config:
+        orm_mode = True
