@@ -1,6 +1,6 @@
 import jwt
 
-from models import get_user, User, get_db
+from models import get_user, get_db
 from datetime import datetime, timedelta
 from fastapi import Depends, HTTPException, status
 from typing import Optional
